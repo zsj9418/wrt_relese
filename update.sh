@@ -448,20 +448,10 @@ update_nss_pbuf_performance() {
 set_build_signature() {
     local file="$BUILD_DIR/feeds/luci/modules/luci-mod-status/htdocs/luci-static/resources/view/status/include/10_system.js"
     if [ -d "$(dirname "$file")" ] && [ -f $file ]; then
-        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ build by ZqinKing')/g" "$file"
+        sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ AX1800')/g" "$file"
     fi
 }
 
-fix_compile_vlmcsd() {
-    local dir="$BUILD_DIR/feeds/packages/net/vlmcsd"
-    local patch_src="$BASE_PATH/patches/001-fix_compile_with_ccache.patch"
-    local patch_dest="$dir/patches"
-
-    if [ -d "$dir" ]; then
-        mkdir -p "$patch_dest"
-        cp -f "$patch_src" "$patch_dest"
-    fi
-}
 
 update_nss_diag() {
     local file="$BUILD_DIR/package/kernel/mac80211/files/nss_diag.sh"
